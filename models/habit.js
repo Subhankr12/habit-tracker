@@ -9,6 +9,10 @@ const habitSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  favorite: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const Habit = mongoose.model("Habit", habitSchema);

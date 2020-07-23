@@ -14,24 +14,38 @@
   </head>
   <body>
     <div class="app-container">
-      <form action="/create-habit" method="POST">
-        <input type="text" name="name" />
+      <form action="/create-habit" method="POST" id="habit-form">
+        <i style="color: #46ec6a; font-size: 1.5rem;" class="fas fa-pen"></i>
+        <input type="text" name="name" placeholder="New Habit" required />
         <button type="submit">ADD</button>
       </form>
       <div class="habit-container">
+        <% if(habit_list.length === 0) { %>
+        <h2 style="margin-top: 5rem;">
+          Add new habits to your
+          <b style="color: #46ec6a;">daily</b> schedule
+        </h2>
+        <% } else { %>
         <ul>
           <% for(let i of habit_list){ %>
           <li class="habit-list-item">
             <p><%= i.name %></p>
             <div class="options">
-              <i class="far fa-star"></i>
+              <a href="/add-favorite/?id=<%= i._id %>">
+                <% if(i.favorite) { %>
+                <i style="color: #daa520ec;" class="fas fa-star"></i>
+                <% } else { %>
+                <i style="color: #daa520ec;" class="far fa-star"></i>
+                <% } %>
+              </a>
               <a href="/delete-habit/?id=<%= i._id %>">
-                <i class="far fa-trash-alt"></i>
+                <i style="color: #ff0000c5;" class="far fa-trash-alt"></i>
               </a>
             </div>
           </li>
           <% } %>
         </ul>
+        <% } %>
       </div>
     </div>
   </body>

@@ -52,6 +52,21 @@ app.get("/delete-habit", (req, res) => {
   });
 });
 
+app.get("/add-favorite", (req, res) => {
+  let id = req.query.id;
+  Habit.findById(id, (err, habit) => {
+    if (err) {
+      console.log("Error updating favorites!");
+      return;
+    }
+
+    habit.favorite = habit.favorite ? false : true;
+    habit.save();
+    console.log(`Favorite for ${habit.name} set to ${habit.favorite}`);
+    return res.redirect("back");
+  });
+});
+
 app.listen(port, (err) => {
   if (err) {
     console.log(`Error in running the server ${err}`);
