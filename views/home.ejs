@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>
+      <%= title %>
+    </title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+      integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="/css/home.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <form action="/create-habit" method="POST">
+        <input type="text" name="name" />
+        <button type="submit">ADD</button>
+      </form>
+      <div class="habit-container">
+        <ul>
+          <% for(let i of habit_list){ %>
+          <li class="habit-list-item">
+            <p><%= i.name %></p>
+            <div class="options">
+              <i class="far fa-star"></i>
+              <a href="/delete-habit/?id=<%= i._id %>">
+                <i class="far fa-trash-alt"></i>
+              </a>
+            </div>
+          </li>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

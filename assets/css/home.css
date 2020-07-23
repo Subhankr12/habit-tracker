@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Oxygen&display=swap");
+
+body {
+  margin: 0;
+  text-align: center;
+  font-family: "Oxygen", sans-serif;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.app-container {
+  display: inline-block;
+  background: darkslategray;
+  width: 40%;
+}
+
+.habit-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(211, 211, 211, 0.87);
+  padding: 0.3rem 1.5rem;
+  margin: 0 1rem 0.2rem 1rem;
+  font-size: 1.3rem;
+  color: rgb(19, 101, 194);
+}
