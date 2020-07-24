@@ -14,16 +14,34 @@
   </head>
   <body>
     <div class="app-container">
+      <a href="http://localhost:5500/" class="theme-color">
+        <i class="fas fa-chevron-left"></i> HOME
+      </a>
       <h1 class="theme-color">
-        7 Day Records For <%= habitDetails.name.toUpperCase() %>
+        7 Day Records For
+        <span class="white-color"><%= habitDetails.name.toUpperCase() %></span>
       </h1>
       <div class="record-list">
         <ul>
           <% for(let i of record_list) { %>
-          <li>
-            <span><%= i.date %></span>
-            <span><%= i.day.toUpperCase() %></span>
-          </li>
+          <a href="/mark-done/?id=<%= i.id %>">
+            <% if(i.done === 'none'){ %>
+            <li class="bg-grey">
+              <p class="blue-color"><%= i.day.toUpperCase() %></p>
+              <p class="blue-color"><%= i.date.slice(8, 10) %></p>
+            </li>
+            <% } else if(i.done === 'done') { %>
+            <li class="bg-green">
+              <p class="white-color"><%= i.day.toUpperCase() %></p>
+              <p class="white-color"><%= i.date.slice(8, 10) %></p>
+            </li>
+            <% } else{ %>
+            <li class="bg-red">
+              <p class="white-color"><%= i.day.toUpperCase() %></p>
+              <p class="white-color"><%= i.date.slice(8, 10) %></p>
+            </li>
+            <% } %>
+          </a>
           <% } %>
         </ul>
       </div>

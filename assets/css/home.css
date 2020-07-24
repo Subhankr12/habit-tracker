@@ -19,6 +19,21 @@ a {
 .theme-color {
   color: #46ec6a;
 }
+.white-color {
+  color: white;
+}
+.blue-color {
+  color: #054863;
+}
+.bg-grey {
+  background: #d3d3d3de;
+}
+.bg-green {
+  background: #37b946;
+}
+.bg-red {
+  background: #db4545;
+}
 
 input,
 button {
@@ -70,10 +85,21 @@ button {
   border-radius: 0.5rem;
   font-size: 1.6rem;
   letter-spacing: 1px;
-  background: #d3d3d3de;
   color: #054863;
 }
 .habit-list-item:hover {
   background: #d3d3d38c;
   color: wheat;
+}
+
+.record-list ul {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5rem;
+}
+.record-list li {
+  margin-right: 0.1rem;
+  padding: 0.2rem 1.5rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
 }

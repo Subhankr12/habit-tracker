@@ -83,7 +83,7 @@ app.get("/render-record", async (req, res) => {
     });
 
     if (recordExists) {
-      console.log(d.toISOString().slice(0, 10), weekDays[d.getDay()]);
+      // console.log(d.toISOString().slice(0, 10), weekDays[d.getDay()]);
       d = new Date();
       i--;
       d.setDate(d.getDate() - i);
@@ -136,6 +136,26 @@ app.get("/render-record", async (req, res) => {
         habitDetails: habit,
       });
     });
+  });
+});
+
+app.get("/mark-done", (req, res) => {
+  let id = req.query.id;
+  Record.findById(id, (err, record) => {
+    if (err) {
+      console.log("Error updating record!!");
+      return;
+    }
+
+    if (record.done === "none") {
+      record.done = "done";
+    } else if (record.done === "done") {
+      record.done = "not-done";
+    } else {
+      record.done = "none";
+    }
+    record.save();
+    return res.redirect("back");
   });
 });
 
