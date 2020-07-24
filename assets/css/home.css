@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Oxygen&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&display=swap");
 
 body {
   margin: 0;
   text-align: center;
-  font-family: "Oxygen", sans-serif;
+  font-family: "Work Sans", sans-serif;
 }
 
 ul {
@@ -15,6 +15,9 @@ a {
 }
 ::-webkit-scrollbar {
   display: none;
+}
+.theme-color {
+  color: #46ec6a;
 }
 
 input,
@@ -62,11 +65,15 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #d3d3d3de;
-  padding: 0.3rem 1.5rem;
-  margin: 0 1rem 0.2rem 1rem;
-  font-size: 1.3rem;
-  color: #1390c2;
-  letter-spacing: 2px;
+  padding: 0 1.5rem;
+  margin: 0 1rem 0.1rem 1rem;
   border-radius: 0.5rem;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+  background: #d3d3d3de;
+  color: #054863;
+}
+.habit-list-item:hover {
+  background: #d3d3d38c;
+  color: wheat;
 }

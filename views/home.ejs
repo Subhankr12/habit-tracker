@@ -15,7 +15,7 @@
   <body>
     <div class="app-container">
       <form action="/create-habit" method="POST" id="habit-form">
-        <i style="color: #46ec6a; font-size: 1.5rem;" class="fas fa-pen"></i>
+        <i style="font-size: 1.5rem;" class="fas fa-pen theme-color"></i>
         <input type="text" name="name" placeholder="New Habit" required />
         <button type="submit">ADD</button>
       </form>
@@ -23,7 +23,7 @@
         <% if(habit_list.length === 0) { %>
         <h2 style="margin-top: 5rem;">
           Add new habits to your
-          <b style="color: #46ec6a;">daily</b> schedule
+          <b class="theme-color">daily</b> schedule
         </h2>
         <% } else { %>
         <ul>
@@ -40,6 +40,9 @@
               </a>
               <a href="/delete-habit/?id=<%= i._id %>">
                 <i style="color: #ff0000c5;" class="far fa-trash-alt"></i>
+              </a>
+              <a href="/render-record/?id=<%= i._id %>">
+                <i style="color: #054863;" class="fas fa-chevron-right"></i>
               </a>
             </div>
           </li>
