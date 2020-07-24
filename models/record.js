@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+//creating record schema
 const recordSchema = new mongoose.Schema(
   {
     date: {
@@ -24,5 +25,6 @@ const recordSchema = new mongoose.Schema(
   }
 );
 
+//exporting record schema
 const Record = mongoose.model("Record", recordSchema);
 module.exports = Record;

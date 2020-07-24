@@ -3,15 +3,18 @@ const path = require("path");
 const app = express();
 const port = 5500;
 
+//require db config and models
 const db = require("./config/mongoose");
 const Habit = require("./models/habit");
 const Record = require("./models/record");
 
+//set view engine
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded());
 app.use(express.static("assets"));
 
+//get request for homepage with list of habits
 app.get("/", (req, res) => {
   Habit.find({}, (err, habits) => {
     if (err) {
@@ -25,6 +28,7 @@ app.get("/", (req, res) => {
   });
 });
 
+//post request for adding new habit
 app.post("/create-habit", (req, res) => {
   Habit.create(
     {
@@ -41,6 +45,7 @@ app.post("/create-habit", (req, res) => {
   );
 });
 
+//get request for deleting habit
 app.get("/delete-habit", (req, res) => {
   let id = req.query.id;
   Habit.findByIdAndDelete(id, (err) => {
@@ -49,10 +54,16 @@ app.get("/delete-habit", (req, res) => {
       return;
     }
 
-    return res.redirect("back");
+    Record.deleteMany({ habit: id }, (err) => {
+      if (err) {
+        console.log("Error in deleting the record!");
+      }
+      return res.redirect("back");
+    });
   });
 });
 
+//get request for marking habit as favorite
 app.get("/add-favorite", (req, res) => {
   let id = req.query.id;
   Habit.findById(id, (err, habit) => {
@@ -68,6 +79,7 @@ app.get("/add-favorite", (req, res) => {
   });
 });
 
+//get request for rendering 7 days record associated with each habit
 app.get("/render-record", async (req, res) => {
   let weekDays = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
   let id = req.query.id;
@@ -139,6 +151,7 @@ app.get("/render-record", async (req, res) => {
   });
 });
 
+//get method for marking each day habit as 'done', 'not-done' or none
 app.get("/mark-done", (req, res) => {
   let id = req.query.id;
   Record.findById(id, (err, record) => {
@@ -159,6 +172,7 @@ app.get("/mark-done", (req, res) => {
   });
 });
 
+//running the express server on port
 app.listen(port, (err) => {
   if (err) {
     console.log(`Error in running the server ${err}`);

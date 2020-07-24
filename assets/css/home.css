@@ -1,3 +1,4 @@
+/* import font url */
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&display=swap");
 
 body {
@@ -6,6 +7,7 @@ body {
   font-family: "Work Sans", sans-serif;
 }
 
+/* general styles used throughout the app */
 ul {
   list-style: none;
   padding: 0;
@@ -13,9 +15,20 @@ ul {
 a {
   text-decoration: none;
 }
+input,
+button {
+  border: none;
+  outline: none;
+  background: transparent;
+}
 ::-webkit-scrollbar {
   display: none;
 }
+.capitalize {
+  text-transform: capitalize;
+}
+
+/* different text color themes */
 .theme-color {
   color: #46ec6a;
 }
@@ -25,6 +38,14 @@ a {
 .blue-color {
   color: #054863;
 }
+.red-color {
+  color: #ff0000c5;
+}
+.golden-color {
+  color: #daa520ec;
+}
+
+/* background color themes */
 .bg-grey {
   background: #d3d3d3de;
 }
@@ -35,13 +56,7 @@ a {
   background: #db4545;
 }
 
-input,
-button {
-  border: none;
-  outline: none;
-  background: transparent;
-}
-
+/* app container styles */
 .app-container {
   display: inline-block;
   background: darkslategray;
@@ -50,6 +65,7 @@ button {
   padding: 1rem;
 }
 
+/* new habit adding form styles  */
 #habit-form input {
   color: #46ec6a;
   font-size: 1.5rem;
@@ -61,7 +77,6 @@ button {
 #habit-form input:focus::placeholder {
   color: transparent;
 }
-
 #habit-form button {
   background: #808080d8;
   color: #46ec6a;
@@ -71,11 +86,11 @@ button {
   border-radius: 0.5rem;
 }
 
+/* display all habits in li styles */
 .habit-container ul {
   overflow-y: scroll;
   height: 90%;
 }
-
 .habit-list-item {
   display: flex;
   justify-content: space-between;
@@ -85,13 +100,13 @@ button {
   border-radius: 0.5rem;
   font-size: 1.6rem;
   letter-spacing: 1px;
-  color: #054863;
 }
 .habit-list-item:hover {
   background: #d3d3d38c;
   color: wheat;
 }
 
+/* display 7 day records in track habit page styles */
 .record-list ul {
   display: flex;
   justify-content: space-between;

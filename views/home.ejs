@@ -14,11 +14,14 @@
   </head>
   <body>
     <div class="app-container">
+      <!-- form for adding new habit -->
       <form action="/create-habit" method="POST" id="habit-form">
         <i style="font-size: 1.5rem;" class="fas fa-pen theme-color"></i>
         <input type="text" name="name" placeholder="New Habit" required />
         <button type="submit">ADD</button>
       </form>
+
+      <!-- container for displaying each habit -->
       <div class="habit-container">
         <% if(habit_list.length === 0) { %>
         <h2 style="margin-top: 5rem;">
@@ -29,20 +32,20 @@
         <ul>
           <% for(let i of habit_list){ %>
           <li class="habit-list-item bg-grey">
-            <p><%= i.name %></p>
+            <p class="capitalize blue-color"><%= i.name %></p>
             <div class="options">
               <a href="/add-favorite/?id=<%= i._id %>">
                 <% if(i.favorite) { %>
-                <i style="color: #daa520ec;" class="fas fa-star"></i>
+                <i class="fas fa-star golden-color"></i>
                 <% } else { %>
-                <i style="color: #daa520ec;" class="far fa-star"></i>
+                <i class="far fa-star golden-color"></i>
                 <% } %>
               </a>
               <a href="/delete-habit/?id=<%= i._id %>">
-                <i style="color: #ff0000c5;" class="far fa-trash-alt"></i>
+                <i class="far fa-trash-alt red-color"></i>
               </a>
               <a href="/render-record/?id=<%= i._id %>">
-                <i style="color: #054863;" class="fas fa-chevron-right"></i>
+                <i class="fas fa-chevron-right blue-color"></i>
               </a>
             </div>
           </li>
