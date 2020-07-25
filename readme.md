@@ -42,8 +42,8 @@ npm start
 
 ## Folder Structure
 
-app
-├── assets
+app <br>
+├── assets <br>
 │ └── css
 │ └── home.css
 ├── config
