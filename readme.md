@@ -44,20 +44,20 @@ npm start
 
 app <br>
 ├── assets <br>
-│ └── css
-│ └── home.css
-├── config
-│ └── mongoose.js
-├── models
-│ ├── habit.js
-│ ├── record.js
-│ └── user.js
-├── node_modules
-├── views
-│ ├── home.ejs
-│ ├── user.ejs
-│ └── view_record.ejs
-├── index.js
-├── package.json
-├── package-lock.json
-└── readme.md
+│ └── css <br>
+│ └── home.css <br>
+├── config <br>
+│ └── mongoose.js <br>
+├── models <br>
+│ ├── habit.js <br>
+│ ├── record.js <br>
+│ └── user.js <br>
+├── node_modules <br>
+├── views <br>
+│ ├── home.ejs <br>
+│ ├── user.ejs <br>
+│ └── view_record.ejs <br>
+├── index.js <br>
+├── package.json <br>
+├── package-lock.json <br>
+└── readme.md <br>
