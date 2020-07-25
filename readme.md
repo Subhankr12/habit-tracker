@@ -18,11 +18,9 @@
 
 ## Installation
 
-```
 ##### # Get the latest snapshot
 
-git clone https://github.com/Subhankr12/habit-tracker.git myproject
-```
+`git clone https://github.com/Subhankr12/habit-tracker.git myproject`
 
 ##### # Change directory
 
@@ -59,3 +57,12 @@ app <br>
 ├── package.json <br>
 ├── package-lock.json <br>
 └── readme.md <br>
+
+## Database Structure
+
+### User ├─────────────────────> Habit ├─────────────────> Record
+
+    └── username                                   ├── name                                     ├── date <br>
+                                                   ├── favorite                                 ├── day  <br>
+                                                   └── user                                     ├── done  <br>
+                                                                                                └── habit <br>
