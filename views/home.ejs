@@ -14,8 +14,19 @@
   </head>
   <body>
     <div class="app-container">
+      <!-- navbar -->
+      <nav class="mb-1">
+        <a href="http://localhost:5500/" class="theme-color">
+          <i class="fas fa-chevron-left"></i> HOME
+        </a>
+      </nav>
+
       <!-- form for adding new habit -->
-      <form action="/create-habit" method="POST" id="habit-form">
+      <form
+        action="/create-habit/?id=<%= user_id %>"
+        method="POST"
+        id="habit-form"
+      >
         <i style="font-size: 1.5rem;" class="fas fa-pen theme-color"></i>
         <input type="text" name="name" placeholder="New Habit" required />
         <button type="submit">ADD</button>
@@ -32,7 +43,7 @@
         <ul>
           <% for(let i of habit_list){ %>
           <li class="habit-list-item bg-grey">
-            <p class="capitalize blue-color"><%= i.name %></p>
+            <p class="capitalize"><%= i.name %></p>
             <div class="options">
               <a href="/add-favorite/?id=<%= i._id %>">
                 <% if(i.favorite) { %>

@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <title>
+      <%= title %>
+    </title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+      integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="/css/home.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- form for adding new habit -->
+      <form action="/create-user" method="POST" id="habit-form">
+        <i style="font-size: 1.5rem;" class="fas fa-user-plus theme-color"></i>
+        <input type="text" name="name" placeholder="Create User" required />
+        <button type="submit">ADD</button>
+      </form>
+
+      <!-- container for displaying each habit -->
+      <div class="habit-container">
+        <% if(user_list.length === 0) { %>
+        <h2 style="margin-top: 5rem;">
+          Create new
+          <b class="theme-color">User</b>
+        </h2>
+        <% } else { %>
+        <ul>
+          <% for(let i of user_list){ %>
+          <li class="habit-list-item bg-grey">
+            <p class="capitalize">
+              <i class="fas fa-user"></i> <%= i.username %>
+            </p>
+            <div class="options">
+              <a href="/delete-user/?id=<%= i._id %>">
+                <i class="far fa-trash-alt red-color"></i>
+              </a>
+              <a href="/render-habits/?id=<%= i._id %>">
+                <i class="fas fa-chevron-right blue-color"></i>
+              </a>
+            </div>
+          </li>
+          <% } %>
+        </ul>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>

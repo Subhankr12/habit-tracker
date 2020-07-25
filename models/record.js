@@ -16,7 +16,7 @@ const recordSchema = new mongoose.Schema(
     habit: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Record",
+        ref: "Habit",
       },
     ],
   },

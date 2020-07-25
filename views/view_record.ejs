@@ -14,11 +14,22 @@
   </head>
   <body>
     <div class="app-container">
-      <!-- anchor tag for going back to home page -->
-      <a href="http://localhost:5500/" class="theme-color">
-        <i class="fas fa-chevron-left"></i> HOME
-      </a>
+      <!-- navbar -->
+      <nav>
+        <a href="http://localhost:5500/" class="theme-color">
+          <i class="fas fa-chevron-left"></i> HOME
+        </a>
+        <a
+          href="http://localhost:5500/render-habits/?id=<%= habitDetails.user %>"
+          class="theme-color"
+        >
+          <i class="fas fa-chevron-left"></i> BACK
+        </a>
+      </nav>
+
+      <!-- page heading -->
       <h1 class="theme-color">
+        <i class="far fa-calendar-check white-color"></i>
         7 Day Records For
         <span class="white-color"><%= habitDetails.name.toUpperCase() %></span>
       </h1>

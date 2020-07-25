@@ -7,16 +7,84 @@ const port = 5500;
 const db = require("./config/mongoose");
 const Habit = require("./models/habit");
 const Record = require("./models/record");
+const User = require("./models/user");
 
 //set view engine
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
+
+//middleware
 app.use(express.urlencoded());
 app.use(express.static("assets"));
 
-//get request for homepage with list of habits
+//get request for users page
 app.get("/", (req, res) => {
-  Habit.find({}, (err, habits) => {
+  User.find({}, (err, users) => {
+    if (err) {
+      console.log("Error in fetching users from db");
+      return;
+    }
+
+    return res.render("user", {
+      title: "Habit Tracker",
+      user_list: users,
+    });
+  });
+});
+
+//post request for creating user
+app.post("/create-user", (req, res) => {
+  User.create(
+    {
+      username: req.body.name,
+    },
+    (err, newUser) => {
+      if (err) {
+        console.log("Error creating user!");
+        return;
+      }
+      console.log("New User : ", newUser);
+      return res.redirect("back");
+    }
+  );
+});
+
+//get request for deleting user
+app.get("/delete-user", (req, res) => {
+  let id = req.query.id;
+  User.findByIdAndDelete(id, (err) => {
+    if (err) {
+      console.log("Error in deleting the contact!");
+      return;
+    }
+
+    Habit.findOne({ user: id }, (err, habits) => {
+      if (err) {
+        console.log("Error fetching habit");
+        return;
+      }
+      Record.deleteMany({ habit: habits._id }, (err) => {
+        if (err) {
+          console.log("Error in deleting the record!");
+        }
+      });
+    });
+
+    Habit.deleteMany({ user: id }, (err, habits) => {
+      if (err) {
+        console.log("Error in deleting the contact!");
+        return;
+      }
+      console.log("User Deleted!!");
+      return res.redirect("back");
+    });
+  });
+});
+
+//get request for homepage with list of habits
+app.get("/render-habits", (req, res) => {
+  let id = req.query.id;
+  Habit.find({ user: id }, (err, habits) => {
     if (err) {
       console.log("Error in fetching habits from db");
       return;
@@ -24,15 +92,19 @@ app.get("/", (req, res) => {
     return res.render("home", {
       title: "Habit Tracker",
       habit_list: habits,
+      user_id: id,
     });
   });
 });
 
 //post request for adding new habit
-app.post("/create-habit", (req, res) => {
-  Habit.create(
+app.post("/create-habit", async (req, res) => {
+  let id = req.query.id;
+  console.log("user id:", id);
+  await Habit.create(
     {
       name: req.body.name,
+      user: id,
     },
     (err, newHabit) => {
       if (err) {
@@ -152,9 +224,9 @@ app.get("/render-record", async (req, res) => {
 });
 
 //get method for marking each day habit as 'done', 'not-done' or none
-app.get("/mark-done", (req, res) => {
+app.get("/mark-done", async (req, res) => {
   let id = req.query.id;
-  Record.findById(id, (err, record) => {
+  await Record.findById(id, (err, record) => {
     if (err) {
       console.log("Error updating record!!");
       return;

@@ -27,6 +27,9 @@ button {
 .capitalize {
   text-transform: capitalize;
 }
+.mb-1 {
+  margin-bottom: 1rem;
+}
 
 /* different text color themes */
 .theme-color {
@@ -100,6 +103,7 @@ button {
   border-radius: 0.5rem;
   font-size: 1.6rem;
   letter-spacing: 1px;
+  color: #054863;
 }
 .habit-list-item:hover {
   background: #d3d3d38c;
