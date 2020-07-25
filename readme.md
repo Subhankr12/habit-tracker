@@ -18,9 +18,11 @@
 
 ## Installation
 
+```
 ##### # Get the latest snapshot
 
-`git clone https://github.com/Subhankr12/habit-tracker.git myproject`
+git clone https://github.com/Subhankr12/habit-tracker.git myproject
+```
 
 ##### # Change directory
 
