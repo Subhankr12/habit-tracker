@@ -4,11 +4,13 @@
 
 ## Technologies Used
 
-   <ol class="bg-blue-light">
-      <li>Nodejs</li>
-      <li>Express</li>
-      <li>EJS view engine</li>
-      <li>MongoDB for database</li>
-   </ol>
+   <div class="bg-blue-light">
+      <ol >
+         <li>Nodejs</li>
+         <li>Express</li>
+         <li>EJS view engine</li>
+         <li>MongoDB for database</li>
+      </ol>
+   </div>
 
 ## Installation
