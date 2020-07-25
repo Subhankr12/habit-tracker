@@ -1,6 +1,6 @@
 # Habit Tracker
 
-> An app to add good and healthy habits to your leisure time and keeping track of them for a week.
+> An app to add good and healthy habits to your schedule and keeping track of them.
 
 ## Technologies Used
 
