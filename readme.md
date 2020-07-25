@@ -18,23 +18,23 @@
 
 ## Installation
 
-##### ..# Get the latest snapshot
+##### # Get the latest snapshot
 
-git clone [](https://github.com/Subhankr12/habit-tracker.git) myproject
+\*\*\* git clone [](https://github.com/Subhankr12/habit-tracker.git) myproject
 
-##### ..# Change directory
+##### # Change directory
 
-cd myproject
+\*\*\* cd myproject
 
-##### ..# Install NPM dependencies
+##### # Install NPM dependencies
 
-npm install
+\*\*\* npm install
 
-##### ..# Then simply start your app
+##### # Then simply start your app
 
-npm start
+\*\*\* npm start
 
-###### ..# The Server should run at: http://localhost:5500/
+###### # The Server should run at: http://localhost:5500/
 
 ## Folder Structure
 
