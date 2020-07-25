@@ -4,14 +4,21 @@
 
 ## Technologies Used
 
-   <div class="bg-blue-light">
-      <ol >
-         <li>Nodejs</li>
-         <li>Express</li>
-         <li>EJS view engine</li>
-         <li>MongoDB for database</li>
-      </ol>
-   </div>
+   <ol >
+      <li>Nodejs</li>
+      <li>Express</li>
+      <li>EJS view engine</li>
+      <li>MongoDB for database</li>
+   </ol>
+
+## Prerequisites
+
+   <ul>
+      <li>MongoDB</li>
+      <li>Node.js 10+</li>
+      <li>Command Line Tools</li>
+      <li>Visual Studio Code</li>
+   </ul>
 
 ## Installation
 
@@ -30,3 +37,27 @@ npm install
 ##### Then simply start your app
 
 npm start
+
+###### The Server should run at: http://localhost:5500/
+
+## Folder Structure
+
+app
+├── assets
+│ └── css
+│ └── home.css
+├── config
+│ └── mongoose.js
+├── models
+│ ├── habit.js
+│ ├── record.js
+│ └── user.js
+├── node_modules
+├── views
+│ ├── home.ejs
+│ ├── user.ejs
+│ └── view_record.ejs
+├── index.js
+├── package.json
+├── package-lock.json
+└── readme.md
