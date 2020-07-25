@@ -14,3 +14,19 @@
    </div>
 
 ## Installation
+
+##### Get the latest snapshot
+
+git clone https://github.com/Subhankr12/habit-tracker.git myproject
+
+##### Change directory
+
+cd myproject
+
+##### Install NPM dependencies
+
+npm install
+
+##### Then simply start your app
+
+npm start
