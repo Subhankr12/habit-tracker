@@ -1,6 +1,6 @@
 # Habit Tracker
 
-> An app to add good and healthy habits to your schedule and keeping track of them.
+> A NodeJS app to add good and healthy habits to your schedule and keeping track of them.
 
 ## Technologies Used
 
