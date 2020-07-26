@@ -61,13 +61,16 @@ app.get("/delete-user", (req, res) => {
     Habit.findOne({ user: id }, (err, habits) => {
       if (err) {
         console.log("Error fetching habit");
-        return;
+        return res.redirect("back");
       }
-      Record.deleteMany({ habit: habits._id }, (err) => {
-        if (err) {
-          console.log("Error in deleting the record!");
-        }
-      });
+      if (habits) {
+        Record.deleteMany({ habit: habits._id }, (err) => {
+          if (err) {
+            console.log("Error in deleting the record!");
+            return;
+          }
+        });
+      }
     });
 
     Habit.deleteMany({ user: id }, (err, habits) => {
