@@ -62,7 +62,7 @@ app <br>
 
 ### User ├─────────────────────> Habit ├─────────────────> Record
 
-    └── username                                   ├── name                                     ├── date <br>
-                                                   ├── favorite                                 ├── day  <br>
-                                                   └── user                                     ├── done  <br>
-                                                                                                └── habit <br>
+    └── username                                   ├── name                                     ├── date
+                                                   ├── favorite                                 ├── day
+                                                   └── user                                     ├── done
+                                                                                                └── habit
