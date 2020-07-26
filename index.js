@@ -133,6 +133,7 @@ app.get("/delete-habit", (req, res) => {
       if (err) {
         console.log("Error in deleting the record!");
       }
+      console.log("Habit Deleted!");
       return res.redirect("back");
     });
   });
